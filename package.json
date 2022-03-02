@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jatinTyagi98/Dev_D#readme",
   "dependencies": {
-    "cheerio": "*"
+    "cheerio": "*",
+    "request": "^2.88.2"
   }
 }
