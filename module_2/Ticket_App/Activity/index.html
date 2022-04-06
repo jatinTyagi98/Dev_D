@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="ticket-filter">
+            <div class="filter red"></div>
+            <div class="filter blue"></div>
+            <div class="filter green"></div>
+            <div class="filter yellow"></div>
+            <div class="filter black"></div>
+        </div>
+        <div class="ticket-actions">
+            <div class="open-modal">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="close-modal">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+    </div>
+    <div class="tickets-container"></div>
+    
+    <!-- <div class="ticket-modal">
+        <div class="ticket-text"></div>
+        <div class="ticket-filters">
+            <div class="filters red"></div>
+            <div class="filters blue"></div>
+            <div class="filters green"></div>
+            <div class="filters yellow"></div>
+            <div class="filters black"></div>
+        </div>
+    </div> -->
+
+    <!-- <div class="ticket">
+        <div class="ticket-header"></div>
+        <div class="ticket-content">
+            <div class="ticket-info">
+                <div class="ticket-id">#34rght</div>
+                <div class="ticket-delete">
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+            </div>
+            <div class="ticket-value">hi hello bye bye</div>
+        </div>
+        
+    </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/short-unique-id@latest/dist/short-unique-id.min.js"></script>
+    <script>
+        let uid = new ShortUniqueId();
+    </script>
+    <script src="./script.js"></script>
+
+</body>
+</html>
