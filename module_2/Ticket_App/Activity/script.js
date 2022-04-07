@@ -85,7 +85,7 @@ function opensModal(e){
 
     //to remove default text
     let ticketTextDiv = ticketModal.querySelector(".ticket-text"); //ticketModal me div find krna hai isliye uske andar querySelector chalaya hai;
-    ticketTextDiv.addEventListener("keypress", handleKeyPress);
+    ticketTextDiv.addEventListener("keydown", handleKeyPress);
 
     //to select filter in a modal 
     //select all the filters as an array
@@ -136,13 +136,19 @@ function handleKeyPress(e){
         // "selected-filter"  class k sath jo element tha uski classList me se colour/filter pta kar liya
         //kyuki chi same filter ticket k header p lagega
         let selectFilter = document.querySelector(".selected-filter").classList[1];// suppose we get "red"
+
+        let id = uid();
+
         
         //ab hame ticket banani hai or usko color and content chaiye 
         //to humne ek obj bnaya or usme dono chize store kardu
         let ticketInfoObject = {
             ticketHeaderFilter : selectFilter, // red -> color
-            ticketValue : e.target.textContent // jo bhi content hoga us modal m
+            ticketValue : e.target.textContent, // jo bhi content hoga us modal m
+            ticketId : id
         };
+
+       
 
         //appendTicket func ko call lgadi jisme ye obj pass kardiya ab ye ticket bnake de dega
         appendTicket(ticketInfoObject);
@@ -150,6 +156,10 @@ function handleKeyPress(e){
         //ek bar ye function ko call lagi , to hume modal close kar dena hai
         //closeModal humne nikala hua hai, click() func lga diya jisse vo band ho jayega
         closeModal.click();
+
+        saveTicketsToDb(ticketInfoObject);
+
+
     }
 
     //jab koi kuch content likhega , to check karga ki abhi tak koi key press nhi hui thi
@@ -166,16 +176,18 @@ function appendTicket(ticketInfoObject){
     //append all other divs init
     //give values to those divs
     //append it to ticket container
-    let {ticketHeaderFilter , ticketValue} = ticketInfoObject; //took from object, created in above func
+    let {ticketHeaderFilter ,ticketValue, ticketId } = ticketInfoObject; //took from object, created in above func
+
+
     let mainTicketDiv = document.createElement("div");
     mainTicketDiv.classList.add("ticket");
-    let id = uid();
+    
     //ticket header m color attach kardiya
     //ticket-value m jo value object m store ki thi vo 
     mainTicketDiv.innerHTML = `<div class="ticket-header ${ticketHeaderFilter}"></div> 
     <div class="ticket-content">
         <div class="ticket-info">
-            <div class="ticket-id">#${id}</div>
+            <div class="ticket-id">#${ticketId}</div>
             <div class="ticket-delete">
                 <i class="fa-solid fa-trash-can"></i>
             </div>
