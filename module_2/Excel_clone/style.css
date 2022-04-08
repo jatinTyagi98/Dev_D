@@ -54,6 +54,7 @@ margin-left: 20px;color: black;}
     height: 76%;
     background-color: white;
     overflow: auto;
+    position: relative;
 }
 .blank-space{
     height: 30px;
@@ -61,6 +62,7 @@ margin-left: 20px;color: black;}
     background-color: grey;
     position: fixed;
     top: 20vh;
+    left: 0;
     z-index: 2;
 }
 
@@ -70,6 +72,9 @@ margin-left: 20px;color: black;}
 }
 .row-number-section{
     display: inline-block;
+    position: fixed;
+    top: calc(20vh + 30px);
+    left: 0;
 }
 .row-number{
     height: 30px;
@@ -104,5 +109,25 @@ margin-left: 20px;color: black;}
     color: white;
     flex-shrink: 0;
     
+
+}
+
+.cell-section{
+    height: calc(76vh - 30px);
+    width: calc(100vw - 30px);
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    overflow: auto;
+}
+
+.row{
+    display: flex;
+}
+.cell{
+    height: 30px;
+    width: 80px;
+    border: 1px solid;
+    flex-shrink: 0;
 
 }
