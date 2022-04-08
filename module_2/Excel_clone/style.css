@@ -131,3 +131,7 @@ margin-left: 20px;color: black;}
     flex-shrink: 0;
 
 }
+
+.cell-selected{
+    border: 2px solid rgb(56, 56, 215);
+}

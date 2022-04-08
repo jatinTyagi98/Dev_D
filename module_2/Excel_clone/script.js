@@ -1,4 +1,10 @@
 let rowNumberSection = document.querySelector(".row-number-section");
+let columnNumberSection = document.querySelector(".column-number-section");
+
+let lastCellSelected;
+
+let formulaBarSelectedCell = document.querySelector(".selected-cell-div");
+
 //for row section div starting from 1 to 100
 for(let i=1;i<=100;i++){
     //every time a div will be created
@@ -11,7 +17,6 @@ for(let i=1;i<=100;i++){
     rowNumberSection.append(div);
 }
 
-let columnNumberSection = document.querySelector(".column-number-section");
  //we have to make cols from A -> Z
  //so loop is from 0 to 26
 for(let j=0;j<26;j++){
@@ -60,6 +65,21 @@ for(let i=1;i<=100;i++){
 
         //setting an attribute as cellAddress
         cellDiv.setAttribute("cell-address", cellAddress);
+
+        cellDiv.addEventListener("click",function(e){
+            if(lastCellSelected){
+                lastCellSelected.classList.remove("cell-selected");
+                
+            }
+                e.target.classList.add("cell-selected");
+                
+                lastCellSelected = e.target; 
+
+                let currCellAddress = e.target.getAttribute("cell-address");
+                
+                formulaBarSelectedCell.innerHTML = currCellAddress;
+
+        })
 
         //appending all 26 cells in row
         rowDiv.append(cellDiv);
